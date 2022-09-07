@@ -16,66 +16,33 @@
       </tr>
     </thead>
     <tbody>
+    
+     <% suppliers.forEach((supplier, index) => { %>
       <tr>
-        <th scope="row">1</th>
-        <td class="w-100">PT. Mitra Utama</td>
-        <td>081234567890</td>
+        <th scope="row"><%= index + 1 %></th>
+        <td class="w-100"><%= supplier.name %></td>
+        <td><%= supplier.phoneNumber %></td>
         <td>
           <div class="d-flex gap-2 text-nowrap">
-            <a class="btn btn-success btn-sm" href="/suppliers/1" role="button">
+            <a class="btn btn-success btn-sm" href="/suppliers/<%= supplier.id %>" role="button">
               <i class="bi-eye-fill"></i> Lihat Detail
             </a>
 
-            <a class="btn btn-primary btn-sm" href="/suppliers/1/edit" role="button">
+            <a class="btn btn-primary btn-sm" href="/suppliers/<%= supplier.id %>/edit" role="button">
               <i class="bi-pencil-fill"></i> Edit
             </a>
 
-            <a class="btn btn-danger btn-sm" role="button">
-              <i class="bi-trash-fill"></i> Hapus
-            </a>
+            <form action="/suppliers/<%= supplier.id %>?_method=DELETE" method="post">
+            
+              <button class="btn btn-danger btn-sm" type="submit">
+                <i class="bi-trash-fill"></i> Hapus
+              </button>
+            </form>
+
           </div>
         </td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td class="w-100">PT. Mitra Utama</td>
-        <td>081234567890</td>
-        <td>
-          <div class="d-flex gap-2 text-nowrap">
-            <a class="btn btn-success btn-sm" href="/suppliers/1" role="button">
-              <i class="bi-eye-fill"></i> Lihat Detail
-            </a>
-
-            <a class="btn btn-primary btn-sm" href="/suppliers/1/edit" role="button">
-              <i class="bi-pencil-fill"></i> Edit
-            </a>
-
-            <a class="btn btn-danger btn-sm" role="button">
-              <i class="bi-trash-fill"></i> Hapus
-            </a>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td class="w-100">PT. Mitra Utama</td>
-        <td>081234567890</td>
-        <td>
-          <div class="d-flex gap-2 text-nowrap">
-            <a class="btn btn-success btn-sm" href="/suppliers/1" role="button">
-              <i class="bi-eye-fill"></i> Lihat Detail
-            </a>
-
-            <a class="btn btn-primary btn-sm" href="/suppliers/1/edit" role="button">
-              <i class="bi-pencil-fill"></i> Edit
-            </a>
-
-            <a class="btn btn-danger btn-sm" role="button">
-              <i class="bi-trash-fill"></i> Hapus
-            </a>
-          </div>
-        </td>
-      </tr>
+     <% }) %>
     </tbody>
   </table>
 </div>

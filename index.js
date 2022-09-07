@@ -1,10 +1,14 @@
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
+const methodOverride = require("method-override");
 const router = require("./router");
 
-const PORT = 3000;
+const PORT = 3001;
 
 const app = express();
+
+// Method Override
+app.use(methodOverride("_method"));
 
 // Accepting Input
 app.use(express.urlencoded({ extended: false }));
